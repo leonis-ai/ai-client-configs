@@ -27,11 +27,13 @@
 | 端点 | 协议 | 谁在用 |
 |---|---|---|
 | `/v1/messages` | Anthropic Messages | Claude Code、Anthropic SDK、Cline（Anthropic 模式） |
-| `/v1/chat/completions` | OpenAI Chat Completions | 绝大多数第三方客户端 |
+| `/v1/chat/completions` | OpenAI Chat Completions | 绝大多数第三方客户端；**Gemini 与 Grok 模型也走这个** |
 | `/v1/responses` | OpenAI Responses | Codex CLI、Codex Desktop |
 
-> 下文示例统一用 `https://ai.svtun.cn` 作为网关地址（[Leonis AI](https://ai.svtun.cn)，支持上述全部三种端点）。
-> 换成你自己的网关地址即可，配置结构完全通用。
+> 下文示例统一用 `https://ai.svtun.cn` 作为网关地址（[Leonis AI](https://ai.svtun.cn)，支持上述全部三种端点，
+> 覆盖 Claude / GPT / Gemini / Grok 共 114 个模型）。换成你自己的网关地址即可，配置结构完全通用。
+>
+> 📋 模型名可在 [在线清单](https://leonis-ai.github.io/models.html) 搜索并点击复制。
 
 ---
 
@@ -83,6 +85,7 @@ Windows PowerShell：
 > 如果两个都设了，`ANTHROPIC_API_KEY` 优先级更高会走官方 —— 先 `unset ANTHROPIC_API_KEY`。
 >
 > 📖 完整教程：[claude-code-guide](https://github.com/leonis-ai/claude-code-guide)
+> 🔀 同时管理多套配置：[cc-switch-guide](https://github.com/leonis-ai/cc-switch-guide)
 
 ---
 
@@ -107,6 +110,11 @@ env_key = "LEONIS_API_KEY"
 export LEONIS_API_KEY="sk-your-key"
 codex
 ```
+
+> 📖 `config.toml` 全字段详解、多 Provider、沙箱与 MCP 配置：[codex-cli-guide](https://github.com/leonis-ai/codex-cli-guide)
+>
+> ⚠️ `wire_api` 是最容易配错的字段。网关支持 `/v1/responses` 就填 `responses`，只支持
+> `/v1/chat/completions` 就填 `chat`。填错的表现是 `404 Not Found`。
 
 ---
 
@@ -583,8 +591,13 @@ curl -s https://ai.svtun.cn/api/v1/chat/completions \
 | 仓库 | 说明 |
 |---|---|
 | [claude-code-guide](https://github.com/leonis-ai/claude-code-guide) | Claude Code 中文完全指南 |
+| [codex-cli-guide](https://github.com/leonis-ai/codex-cli-guide) | Codex CLI 完全配置手册 |
+| [gemini-api-guide](https://github.com/leonis-ai/gemini-api-guide) | Gemini API 中文配置手册 |
+| [cc-switch-guide](https://github.com/leonis-ai/cc-switch-guide) | 多配置一键切换 |
 | [awesome-ai-api-gateway](https://github.com/leonis-ai/awesome-ai-api-gateway) | AI 网关与中转生态精选 |
 | [ai-api-pricing](https://github.com/leonis-ai/ai-api-pricing) | 成本计算与缓存经济学 |
+| [ai-client-configs](https://github.com/leonis-ai/ai-client-configs) | 20+ 客户端配置模板 |
+| [全部 114 个模型](https://leonis-ai.github.io/models.html) | 在线可搜索模型清单 |
 
 ---
 
