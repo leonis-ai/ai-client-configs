@@ -60,7 +60,7 @@
 协议：**Anthropic Messages** · 端点：`/api`
 
 ```bash
-export ANTHROPIC_BASE_URL="https://ai.svtun.cn/api"
+export ANTHROPIC_BASE_URL="https://ai.svtun.cn"
 export ANTHROPIC_AUTH_TOKEN="sk-your-key"
 
 claude
@@ -69,7 +69,7 @@ claude
 写进 `~/.zshrc` 或 `~/.bashrc` 持久化：
 
 ```bash
-echo 'export ANTHROPIC_BASE_URL="https://ai.svtun.cn/api"' >> ~/.zshrc
+echo 'export ANTHROPIC_BASE_URL="https://ai.svtun.cn"' >> ~/.zshrc
 echo 'export ANTHROPIC_AUTH_TOKEN="sk-your-key"' >> ~/.zshrc
 source ~/.zshrc
 ```
@@ -77,7 +77,7 @@ source ~/.zshrc
 Windows PowerShell：
 
 ```powershell
-[Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://ai.svtun.cn/api", "User")
+[Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://ai.svtun.cn", "User")
 [Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "sk-your-key", "User")
 ```
 
@@ -101,7 +101,7 @@ model = "gpt-5.6-sol"
 
 [model_providers.leonis]
 name = "Leonis AI"
-base_url = "https://ai.svtun.cn/api/v1"
+base_url = "https://ai.svtun.cn/v1"
 wire_api = "responses"
 env_key = "LEONIS_API_KEY"
 ```
@@ -123,7 +123,7 @@ codex
 协议：**OpenAI Chat** · 端点：`/api/v1`
 
 ```bash
-export OPENAI_API_BASE="https://ai.svtun.cn/api/v1"
+export OPENAI_API_BASE="https://ai.svtun.cn/v1"
 export OPENAI_API_KEY="sk-your-key"
 
 aider --model gpt-5.6-sol
@@ -142,7 +142,7 @@ aider --model openai/claude-sonnet-5
 **Anthropic 协议：**
 
 ```bash
-curl https://ai.svtun.cn/api/v1/messages \
+curl https://ai.svtun.cn/v1/messages \
   -H "x-api-key: sk-your-key" \
   -H "anthropic-version: 2023-06-01" \
   -H "content-type: application/json" \
@@ -156,7 +156,7 @@ curl https://ai.svtun.cn/api/v1/messages \
 **OpenAI 协议：**
 
 ```bash
-curl https://ai.svtun.cn/api/v1/chat/completions \
+curl https://ai.svtun.cn/v1/chat/completions \
   -H "Authorization: Bearer sk-your-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -180,14 +180,14 @@ VS Code 扩展。支持两种模式。
 | API Provider | `Anthropic` |
 | Anthropic API Key | `sk-your-key` |
 | Use custom base URL | ✅ 勾选 |
-| Base URL | `https://ai.svtun.cn/api` |
+| Base URL | `https://ai.svtun.cn` |
 
 **OpenAI Compatible 模式：**
 
 | 字段 | 值 |
 |---|---|
 | API Provider | `OpenAI Compatible` |
-| Base URL | `https://ai.svtun.cn/api/v1` |
+| Base URL | `https://ai.svtun.cn/v1` |
 | API Key | `sk-your-key` |
 | Model ID | `claude-sonnet-5` 或 `gpt-5.6-sol` |
 
@@ -200,7 +200,7 @@ VS Code 扩展（Cline 的分支）。配置方式相同：
 | 字段 | 值 |
 |---|---|
 | API Provider | `OpenAI Compatible` |
-| Base URL | `https://ai.svtun.cn/api/v1` |
+| Base URL | `https://ai.svtun.cn/v1` |
 | API Key | `sk-your-key` |
 | Model | 手动填模型名 |
 
@@ -217,14 +217,14 @@ VS Code / JetBrains 扩展。`~/.continue/config.json`：
       "title": "Claude Sonnet 5",
       "provider": "openai",
       "model": "claude-sonnet-5",
-      "apiBase": "https://ai.svtun.cn/api/v1",
+      "apiBase": "https://ai.svtun.cn/v1",
       "apiKey": "sk-your-key"
     },
     {
       "title": "GPT-5.6",
       "provider": "openai",
       "model": "gpt-5.6-sol",
-      "apiBase": "https://ai.svtun.cn/api/v1",
+      "apiBase": "https://ai.svtun.cn/v1",
       "apiKey": "sk-your-key"
     }
   ],
@@ -232,7 +232,7 @@ VS Code / JetBrains 扩展。`~/.continue/config.json`：
     "title": "Haiku",
     "provider": "openai",
     "model": "claude-haiku-4-5",
-    "apiBase": "https://ai.svtun.cn/api/v1",
+    "apiBase": "https://ai.svtun.cn/v1",
     "apiKey": "sk-your-key"
   }
 }
@@ -246,7 +246,7 @@ VS Code / JetBrains 扩展。`~/.continue/config.json`：
 
 | 字段 | 值 |
 |---|---|
-| Base URL | `https://ai.svtun.cn/api/v1` |
+| Base URL | `https://ai.svtun.cn/v1` |
 | API Key | `sk-your-key` |
 
 然后在模型列表里 **Add Model**，手动填入模型名（如 `claude-sonnet-5`）。
@@ -263,7 +263,7 @@ VS Code / JetBrains 扩展。`~/.continue/config.json`：
 {
   "language_models": {
     "openai": {
-      "api_url": "https://ai.svtun.cn/api/v1",
+      "api_url": "https://ai.svtun.cn/v1",
       "available_models": [
         { "name": "claude-sonnet-5", "max_tokens": 200000 },
         { "name": "gpt-5.6-sol", "max_tokens": 128000 }
@@ -286,10 +286,10 @@ API Key 通过 `Assistant → Settings` 面板填入。
 | 字段 | 值 |
 |---|---|
 | 提供商类型 | `OpenAI` |
-| API 地址 | `https://ai.svtun.cn/api` |
+| API 地址 | `https://ai.svtun.cn` |
 | API 密钥 | `sk-your-key` |
 
-> 💡 Cherry Studio 会自动补 `/v1`，所以这里填到 `/api` 就行，**不要**填 `/api/v1`。
+> 💡 Cherry Studio 会自动补 `/v1`，所以这里填到域名就行，**不要**再写 `/v1`。
 
 添加模型时手动输入模型 ID（`claude-opus-5`、`gpt-5.6-sol` 等）。
 
@@ -301,7 +301,7 @@ API Key 通过 `Assistant → Settings` 面板填入。
 
 | 字段 | 值 |
 |---|---|
-| API 域名 | `https://ai.svtun.cn/api` |
+| API 域名 | `https://ai.svtun.cn` |
 | API 密钥 | `sk-your-key` |
 | 模型 | 自定义填写 |
 
@@ -313,7 +313,7 @@ API Key 通过 `Assistant → Settings` 面板填入。
 
 ```bash
 OPENAI_API_KEY=sk-your-key
-OPENAI_PROXY_URL=https://ai.svtun.cn/api/v1
+OPENAI_PROXY_URL=https://ai.svtun.cn/v1
 OPENAI_MODEL_LIST=+claude-opus-5,+claude-sonnet-5,+gpt-5.6-sol,+gpt-5.5
 ```
 
@@ -327,7 +327,7 @@ services:
       - "3210:3210"
     environment:
       OPENAI_API_KEY: sk-your-key
-      OPENAI_PROXY_URL: https://ai.svtun.cn/api/v1
+      OPENAI_PROXY_URL: https://ai.svtun.cn/v1
       OPENAI_MODEL_LIST: "+claude-opus-5,+claude-sonnet-5,+gpt-5.6-sol"
       ACCESS_CODE: your-access-code
 ```
@@ -340,7 +340,7 @@ services:
 
 ```bash
 OPENAI_API_KEY=sk-your-key
-BASE_URL=https://ai.svtun.cn/api
+BASE_URL=https://ai.svtun.cn
 CUSTOM_MODELS=+claude-opus-5,+claude-sonnet-5,+gpt-5.6-sol
 ```
 
@@ -356,14 +356,14 @@ CUSTOM_MODELS=+claude-opus-5,+claude-sonnet-5,+gpt-5.6-sol
 
 | 字段 | 值 |
 |---|---|
-| API Base URL | `https://ai.svtun.cn/api/v1` |
+| API Base URL | `https://ai.svtun.cn/v1` |
 | API Key | `sk-your-key` |
 
 Docker 部署时直接给环境变量：
 
 ```bash
 docker run -d -p 3000:8080 \
-  -e OPENAI_API_BASE_URL=https://ai.svtun.cn/api/v1 \
+  -e OPENAI_API_BASE_URL=https://ai.svtun.cn/v1 \
   -e OPENAI_API_KEY=sk-your-key \
   -v open-webui:/app/backend/data \
   --name open-webui \
@@ -380,7 +380,7 @@ docker run -d -p 3000:8080 \
 |---|---|
 | 模型名称 | `claude-sonnet-5` |
 | API Key | `sk-your-key` |
-| API endpoint URL | `https://ai.svtun.cn/api/v1` |
+| API endpoint URL | `https://ai.svtun.cn/v1` |
 | Completion mode | `Chat` |
 | 模型上下文长度 | `200000` |
 | 最大 token 上限 | `8192` |
@@ -397,7 +397,7 @@ docker run -d -p 3000:8080 \
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://ai.svtun.cn/api/v1",
+    base_url="https://ai.svtun.cn/v1",
     api_key="sk-your-key",
 )
 
@@ -430,7 +430,7 @@ for chunk in stream:
 import OpenAI from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://ai.svtun.cn/api/v1",
+  baseURL: "https://ai.svtun.cn/v1",
   apiKey: process.env.LEONIS_API_KEY,
 });
 
@@ -450,7 +450,7 @@ console.log(resp.choices[0].message.content);
 from anthropic import Anthropic
 
 client = Anthropic(
-    base_url="https://ai.svtun.cn/api",
+    base_url="https://ai.svtun.cn",
     auth_token="sk-your-key",
 )
 
@@ -485,7 +485,7 @@ msg = client.messages.create(
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  baseURL: "https://ai.svtun.cn/api",
+  baseURL: "https://ai.svtun.cn",
   authToken: process.env.LEONIS_API_KEY,
 });
 
@@ -506,7 +506,7 @@ console.log(msg.content[0].text);
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(
-    base_url="https://ai.svtun.cn/api/v1",
+    base_url="https://ai.svtun.cn/v1",
     api_key="sk-your-key",
     model="claude-sonnet-5",
     temperature=0.7,
@@ -521,7 +521,7 @@ print(llm.invoke("Hello").content)
 from langchain_anthropic import ChatAnthropic
 
 llm = ChatAnthropic(
-    anthropic_api_url="https://ai.svtun.cn/api",
+    anthropic_api_url="https://ai.svtun.cn",
     anthropic_api_key="sk-your-key",
     model="claude-opus-5",
 )
@@ -535,7 +535,7 @@ llm = ChatAnthropic(
 from llama_index.llms.openai_like import OpenAILike
 
 llm = OpenAILike(
-    api_base="https://ai.svtun.cn/api/v1",
+    api_base="https://ai.svtun.cn/v1",
     api_key="sk-your-key",
     model="claude-sonnet-5",
     context_window=200000,
@@ -556,7 +556,7 @@ print(llm.complete("Hello"))
 | 字段 | 值 |
 |---|---|
 | API Key | `sk-your-key` |
-| Base URL | `https://ai.svtun.cn/api/v1` |
+| Base URL | `https://ai.svtun.cn/v1` |
 
 之后 `OpenAI Chat Model` 节点里手动填模型名即可。
 
@@ -576,7 +576,7 @@ print(llm.complete("Hello"))
 **快速自检：**
 
 ```bash
-curl -s https://ai.svtun.cn/api/v1/chat/completions \
+curl -s https://ai.svtun.cn/v1/chat/completions \
   -H "Authorization: Bearer $YOUR_KEY" \
   -H "Content-Type: application/json" \
   -d '{"model":"gpt-5.6-sol","messages":[{"role":"user","content":"hi"}],"max_tokens":16}'
